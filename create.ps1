@@ -9,7 +9,7 @@ New-AzResourceGroup `
 
   $username = "breakglass"
   $PW = [System.Web.Security.Membership]::GeneratePassword(24,0)
-  $password = ConvertTo-SecureString $PW -AsPlainText -Force
+  $password = ConvertTo-SecureString $PW -AsPlainText
   $Cred = New-Object System.Management.Automation.PSCredential($username, $password)
    
 
