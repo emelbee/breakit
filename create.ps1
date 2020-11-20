@@ -7,7 +7,7 @@ New-AzResourceGroup `
 # temp password that will be changed afer onboarding
 
   $username = "breakglass"
-  $PW = [System.Web.Security.Membership]::GeneratePassword(24,0)
+  $PW = [System.Web.Security.Membership]::GeneratePassword(24,0) -Force
   $password = ConvertTo-SecureString $PW -AsPlainText -Force
   $Cred = New-Object System.Management.Automation.PSCredential($username, $password)
    
