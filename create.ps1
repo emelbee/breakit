@@ -8,7 +8,7 @@ New-AzResourceGroup `
 
   $username = "breakglass"
   $PW = [System.Web.Security.Membership]::GeneratePassword(24,0)
-  $password = ConvertTo-SecureString $PW -AsPlainText
+  $password = ConvertTo-SecureString $PW -AsPlainText -Force
   $Cred = New-Object System.Management.Automation.PSCredential($username, $password)
    
 
@@ -29,32 +29,4 @@ New-AzVm `
 (Get-AzPublicIpAddress -ResourceGroupName myResourceGroupVM).IpAddress
 
 
-########################################
-# now onboard this virtual machine     #
-########################################
-# Define the FQDN for the REST APIs
-$FQDN = 'https://comp01.cybr.com'
 
-
-$logonInfo = @{}
-
-  $logonInfo.username = "dapprovisioning"
-  $logonInfo.password = "Cyberark1"
-  
-  #$logonuser = ConvertFrom-SecureString -SecureString $env:pvwausername -AsPlainText
-  #$logonpwd = ConvertFrom-SecureString -SecureString $env:pvwapassword -AsPlainText
-  #$logonInfo.username = $logonuser
-  #$logonInfo.password = $logonpwd
-  
-  # get the api logon credentials
-# here we will use the dap integration
-# to retrieve the api credentials
-
-# We got the creds for the REST APIs so we are good to go!
- "$(Get-Date) Credentials retrieved, logging in to REST APIs"
-  
-
-$targetaddress = (Get-AzPublicIpAddress -ResourceGroupName myResourceGroupVM).IpAddress
-
- "$(Get-Date) test input done "
- 
