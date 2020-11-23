@@ -32,3 +32,5 @@ New-AzVm `
 
 Remove-AzResourceGroup -Name myResourceGroupVM -Force
 
+"$(Get-Date) azure resource REMOVED succesfully"
+
