@@ -28,5 +28,7 @@ New-AzVm `
 "$(Get-AzPublicIpAddress -Name myPublicIpAddress -ResourceGroupName myResourceGroupVM)"
 (Get-AzPublicIpAddress -ResourceGroupName myResourceGroupVM).IpAddress
 
+#and remove it again
 
+Remove-AzResourceGroup -Name myResourceGroupVM -Force
 
