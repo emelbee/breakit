@@ -3,7 +3,6 @@
 New-AzResourceGroup `
    -ResourceGroupName "myResourceGroupVM" `
    -Location "East US"
-   -Force
  
 # temp password that will be changed afer onboarding
 
